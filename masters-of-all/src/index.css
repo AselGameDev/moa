@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+html,
+body {
+  background-color: #06302F;
+  color: #EDE9E0;
+  overflow-x: clip;
+}
+
+.no-scrollbar {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+@keyframes orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-counter {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes atom-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.6;
+  }
+}
+
+@keyframes atom-orbit-elliptical {
+  0% {
+    transform: rotate(var(--angle, 0deg)) rotateZ(0deg);
+  }
+  100% {
+    transform: rotate(var(--angle, 0deg)) rotateZ(360deg);
+  }
+}
+
+.animate-orbit-spin {
+  animation: orbit-spin 36s linear infinite;
+}
+
+.animate-orbit-counter {
+  animation: orbit-counter 36s linear infinite;
+}
+
+.animate-atom-pulse {
+  animation: atom-pulse 5s ease-in-out infinite;
+}
