@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+:root {
+  --sticky-stack-offset: 96px;
+}
+
+html,
+body {
+  background-color: #06302F;
+  color: #EDE9E0;
+  overflow-x: clip;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.scroll-mt-sticky {
+  scroll-margin-top: var(--sticky-stack-offset, 96px);
+}
+
+.no-scrollbar {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+@keyframes orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-counter {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes atom-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.6;
+  }
+}
+
+@keyframes atom-orbit-elliptical {
+  0% {
+    transform: rotate(var(--angle, 0deg)) rotateZ(0deg);
+  }
+  100% {
+    transform: rotate(var(--angle, 0deg)) rotateZ(360deg);
+  }
+}
+
+.animate-orbit-spin {
+  animation: orbit-spin 36s linear infinite;
+}
+
+.animate-orbit-counter {
+  animation: orbit-counter 36s linear infinite;
+}
+
+.animate-atom-pulse {
+  animation: atom-pulse 5s ease-in-out infinite;
+}
+
+.orbit-pause-container:hover .orbit-revolvable,
+.orbit-paused .orbit-revolvable {
+  animation-play-state: paused !important;
+}
+
+:focus-visible {
+  outline: 2px solid #25CDB6;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
