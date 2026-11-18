@@ -1,6 +1,0 @@
-{
-  "name": "Masters Of All",
-  "description": "Research, Discovery, and Development across foundational disciplines—advancing science, engineering, law, history, and human capability.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
